@@ -7,8 +7,6 @@ $('.slider-carousel').owlCarousel({
   nav: false,
   items: 1,
   autoHeight: true,
-  animateOut: 'fadeOut',
-  animateIn: 'fadeIn',
   autoplaySpeed: 1000,
 });
 
@@ -21,6 +19,7 @@ $('.xzoom-carousel').owlCarousel({
   margin:10,
   nav: true,
   items: 4,
+  autoWidth: true,
   navText: [
     "<i class='mdi mdi-chevron-left'></i>",
     "<i class='mdi mdi-chevron-right'></i>" 
@@ -55,7 +54,7 @@ $(document).ready(() => {
 
   // GO TOP
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
+    if ($(this).scrollTop() > 150) {
       $('.go-top').fadeIn().css('transform','scale(1)');
       $('.menu').addClass('down animated slideInDown');
     } else {
@@ -102,7 +101,7 @@ $(document).ready(() => {
   });
 
   if (windowWidth < 1200) {
-    $('.menu .nav-link').parent().find('ul').filter(function() {
+    $('.menu .nav-link').parent().find('ul, div').filter(function() {
       $(this).parent().find('.nav-link').removeAttr('href');
     });
   }

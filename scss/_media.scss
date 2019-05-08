@@ -48,8 +48,19 @@ $main_color: #0088CC;
     max-width: calc(100% - 30px);
   }
 
-  .menu .main-menu .nav li a {
-    padding: 22px 13px
+  .menu .main-menu .nav li {
+    .sub-menu {
+      width: 992px;
+      left: -395px;
+    }
+
+    a {
+      padding: 22px 13px
+    } 
+  }
+
+  .box-service {
+    height: calc(100% / 4 - 15px);
   }
 
   .box-product-img {
@@ -90,17 +101,55 @@ $main_color: #0088CC;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 998;
     height: 60px;
     left: 15px;
     @include sha;
 
-    .logo img {
-      height: 40px;
+    .logo {
+      margin: 7px 0;
+
+      a {
+        color: black;
+      }
+    }
+
+    .search {
+      position: absolute;
+      width: 100%;
+      top: 24px;
+      background: #f4f4f4;
+      left: 0;
+      padding: 10px;
+      -webkit-transition: .3s;
+      transition: .3s;
+      -webkit-transform: translateY(-50%) scaleY(0);
+              transform: translateY(-50%) scaleY(0);
+
+      &.active {
+        -webkit-transform: none;
+                transform: none;
+      }
+
+      select, button {
+        border: 1px solid #e1e1e1;
+      }
+
+      select {
+        border-right: 0;
+      }
     }
 
     .hotline {
       margin: 0;
+
+      &-detail h4 {
+        color: black;
+
+        &:hover {
+          color: $main_color;
+        }
+      }
     }
   }
 
@@ -187,7 +236,7 @@ $main_color: #0088CC;
             color: $main_color;
           }
 
-          ul { 
+          ul, .sub-menu { 
             width: 300px;
             top: 50px;
             -webkit-transform: translateX(-300px);
@@ -220,6 +269,25 @@ $main_color: #0088CC;
               
               a {
                 padding: 15px 20px;
+              }
+            }
+          }
+
+          .sub-menu {
+            left: 0;
+            display: block;
+            padding-top: 20px;
+            padding-right: 50px;
+
+            ul {
+              margin-bottom: 15px;
+            }
+
+            &-item {
+              width: 100%;
+
+              ul::before {
+                content: none;
               }
             }
           }
@@ -282,8 +350,6 @@ $main_color: #0088CC;
     }
   }
 
-
-
   .box-product-img {
     height: calc(100vw / 3 - 40px);
   }
@@ -299,11 +365,34 @@ $main_color: #0088CC;
   .header-bottom .logo {
     border: 0;
   }
+
+  .aboutus .tab-content {
+    width: calc(100% - 380px);
+    margin-left: 30px;
+
+    img {
+      width: 100%;
+    }
+  }
 }
 
 @media (max-width: 767px) {  
-  .product-all {
-    top: 15px;
+  .header-top {
+    .hotline {
+      text-align: left;
+    }
+
+    .logo { 
+      display: none;
+    }
+  }
+
+  .aboutus {
+    display: none;
+  }
+
+  .slider {
+    margin: 0;
   }
 
   .product-zone, .product-page .main-zone {
@@ -383,6 +472,70 @@ $main_color: #0088CC;
     padding-bottom: 40px;
   }
   
+  .contact-home {
+    padding: 15px 0;
+    margin-bottom: 30px;
+
+    .box-contact-home {
+      width: 100%;
+
+      &-top, &-bottom {
+        display: block;
+
+        .left, .right {
+          width: calc(100% - 30px);
+        }
+      }
+
+      ul {
+        margin-bottom: 30px;
+      }
+    }
+  } 
+
+  .service {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+
+    .nav-tabs {
+      margin: 0 -5px;
+
+      li {
+        display: inline-block;
+        width: calc(50% - 12px);
+        text-align: center;
+
+        a {
+          -webkit-transform: none;
+                  transform: none;
+          padding: 10px;
+
+          span {
+            -webkit-transform: none;
+                    transform: none;
+          }
+        }
+      }
+    }
+  }
+
+  .title-page {
+    margin: 0;
+    margin-bottom: 20px;
+
+    h3 a { 
+      padding: 0;
+      background: none;
+      font-size: 20px;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      border: 0;
+
+      &:after {
+        content: none;
+      }
+    }
+  }
 }
 
 @media (max-width: 450px) {
@@ -390,5 +543,9 @@ $main_color: #0088CC;
     .owl-theme .owl-dots {
       display: none;
     }
+  }
+
+  .header-top .search select {
+    width: 100px;
   }
 }
